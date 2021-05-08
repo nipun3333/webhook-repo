@@ -1,0 +1,37 @@
+body{
+    background-image: linear-gradient(to left, rgba(255,0,0,0.3), rgba(255,0,0,0.5));
+}
+
+.whole-log{
+    margin: auto;
+    width: 80%;
+    padding: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+
+.title{
+    margin: auto;
+    width: 90%;
+    padding: 5px;
+    color: rgb(12, 12, 138);
+}
+
+.data{
+    margin: auto;
+    width: 90%;
+    padding: 5px;
+}
+
+.pull{
+    color: rgb(45, 105, 105);
+}
+
+.push{
+    color:rgb(13, 189, 189);
+}

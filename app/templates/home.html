@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="15">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- importing stylesheet from static directory -->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <title>Document</title>
+</head>
+
+<!-- javascript function for reloading the page -->
+<script type="text/javascript">
+    var intervalID = setInterval(update_values,15000);
+    
+      function update_values() {
+            $.getJSON($SCRIPT_ROOT + '/_stuff',
+                   
+          function(data) {
+            $('#result').text(data.result);
+            console.log(data)
+          });
+          
+        };
+     
+        function stopTextColor() {
+          clearInterval(intervalID);
+        }
+        
+    </script>
+
+<body onload="update_values();">
+
+
+
+    <script>
+        document.getElementById("result").innerHTML;
+        </script>
+
+    
+    <div class="whole-log">
+        <div class="title"><h1>Logs</h1></div>
+
+        <hr>
+        
+        <!-- printing data from database -->
+        <div class="data">
+            {% for log in logs %}
+                {%if log.request == "PULL"%}
+                    <h4 class="pull">{{log.author}} submitted a pull request from {{log.from_branch}} to {{log.to_branch}} on {{log.time}} UTC</h4>
+                {%endif%}
+
+                {%if log.request == "PUSH"%}
+                    <h4 class="push"> {{log.author}} pushed to {{log.branch}} on {{log.time}} UTC</h4>
+                {%endif%}
+            {% endfor %}
+        </div>
+    </div>
+    </body>
+</body>
+</html>
